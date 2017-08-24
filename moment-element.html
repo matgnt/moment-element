@@ -20,7 +20,9 @@ Examples:
 
 <dom-module id="moment-element">
   <template>
-    [[output]]
+    <template is="dom-if" if="{{!outputHidden}}">
+        [[output]]
+    </template>
   </template>
 
   <script>
@@ -82,6 +84,14 @@ Examples:
         output: {
           type: String,
           notify: true
+        },
+
+        /**
+         * If set, output is not shown, but still set in the output property.
+         */
+        outputHidden: {
+          type: Boolean,
+          value: false
         },
 
         /**
